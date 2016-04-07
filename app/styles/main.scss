@@ -55,6 +55,8 @@ h1 {
 	}
 }
 
+.complete {text-decoration: line-through;}
+
 @media all and (min-width: 451px) {
 	
 	body {	border: 1em solid $background-color-light;

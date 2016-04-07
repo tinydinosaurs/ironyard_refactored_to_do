@@ -5,7 +5,7 @@ import Backbone from 'backbone';
 // 	console.log('whaaaaaaaaa??')
 // });
 
-
+let myList = [];
 
 const ToDo = Backbone.View.extend({
 	// hello: function() {
@@ -13,27 +13,29 @@ const ToDo = Backbone.View.extend({
 	// },
 	tagName: 'p',
 	className: 'to-do-item',
+	events: {
+		'click': 'removeItems'
+	},
 	initialize: function(input) {
 		this.input = input;
 		this.render();
 	},
 	template: function() {
 		return `
-		<input type="checkbox" class="done">${this.input}
+		${this.input}
 		`
 	},
 	render: function() {
-		let myList = [];
 		this.$el.append(this.template());
 		$('#to_do_list').append(this.el);
 		myList.push(this.input);
 		console.log(myList);
 	},
+
+	removeItems: function() {
+		$(this.el).remove();
+	}
 }); 
 
-// imageInfo.forEach((val, index, array) => {
-// 	let newImageView = new ImageView(val.label, val.src);
-// 	$('.flex-container').append(newImageView.$el);
-// });
 
 export default ToDo
