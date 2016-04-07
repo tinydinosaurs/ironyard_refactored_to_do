@@ -8,13 +8,11 @@ import Backbone from 'backbone';
 let myList = [];
 
 const ToDo = Backbone.View.extend({
-	// hello: function() {
-	// 	console.log('whaaaaaaaaaaaa')
-	// },
 	tagName: 'p',
 	className: 'to-do-item',
 	events: {
-		'click': 'removeItems'
+		'click': 'completeItems',
+		 'click .fa-trash-o': 'removeItems'
 	},
 	initialize: function(input) {
 		this.input = input;
@@ -22,7 +20,7 @@ const ToDo = Backbone.View.extend({
 	},
 	template: function() {
 		return `
-		${this.input}
+		${this.input} <i class="fa fa-trash-o"></i>
 		`
 	},
 	render: function() {
@@ -32,8 +30,12 @@ const ToDo = Backbone.View.extend({
 		console.log(myList);
 	},
 
+	completeItems: function() {
+		this.$el.toggleClass('complete');
+	},
+
 	removeItems: function() {
-		$(this.el).remove();
+		this.$el.remove();
 	}
 }); 
 

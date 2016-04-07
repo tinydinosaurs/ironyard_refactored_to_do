@@ -8,12 +8,14 @@ import $ from 'jquery';
 
 
 $('#submit_to_do').click(function () {
-    const newItem = new toDoView($('#to_do_item').val());
+    let newItem = new toDoView($('#to_do_item').val());
     $('#to_do_item').val('');
     return newItem;
 });
 
-
+/****************************************************/
+/*		LET'S REFACTOR THIS VANILLA JAVASCRIPT		*/
+/****************************************************/
 
 //////////////////////////////////////
 // variables for any objects in the //
