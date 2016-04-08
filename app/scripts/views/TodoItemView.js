@@ -5,9 +5,7 @@ import Backbone from 'backbone';
 // 	console.log('whaaaaaaaaa??')
 // });
 
-let myList = [];
-
-const ToDo = Backbone.View.extend({
+const ToDoItemView = Backbone.View.extend({
 	tagName: 'p',
 	className: 'to-do-item',
 	events: {
@@ -26,8 +24,6 @@ const ToDo = Backbone.View.extend({
 	render: function() {
 		this.$el.append(this.template());
 		$('#to_do_list').append(this.el);
-		myList.push(this.input);
-		console.log(myList);
 	},
 
 	completeItems: function() {
@@ -40,4 +36,4 @@ const ToDo = Backbone.View.extend({
 }); 
 
 
-export default ToDo
+export default ToDoItemView
